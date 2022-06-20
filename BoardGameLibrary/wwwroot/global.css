@@ -29,6 +29,10 @@
     position: relative;
 }
 
+h2 {
+    font-size: 35px;
+}
+
 .global-container {
     padding-top: 20vh;
 }

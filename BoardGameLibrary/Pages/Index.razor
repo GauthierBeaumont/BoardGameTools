@@ -1,0 +1,12 @@
+﻿@page "/"
+@inject IStringLocalizer<App> _l
+
+<PageTitle>@_l["HomeTitle"]</PageTitle>
+<div class="background-img">
+    <MudContainer Class="home-container">
+        <h2>@_l["Welcome"]</h2>
+        @_l["HomePageInformation"]
+        <MudSpacer />
+        @_l["HomePageInformation2"]
+    </MudContainer>
+</div>
