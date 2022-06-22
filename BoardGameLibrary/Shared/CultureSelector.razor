@@ -1,4 +1,5 @@
 ﻿@using System.Globalization
+@using Microsoft.JSInterop
 
 <select @bind="Culture" style="width:300px; margin-left:10px; background: transparent;">
     @foreach (var culture in cultures)
@@ -8,6 +9,11 @@
 </select>
 
 @code {
+
+    [Inject]
+    public NavigationManager NavManager { get; set; }
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
 
     CultureInfo[] cultures = new[]
     {
@@ -20,14 +26,11 @@
         get => CultureInfo.CurrentCulture;
         set
         {
-            switch (value.Name)
+            if (CultureInfo.CurrentCulture != value)
             {
-                case "fr-FR":
-                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("fr");
-                    break;
-                case "en-US":
-                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en");
-                    break;
+                var js = (IJSInProcessRuntime)JSRuntime;
+                js.InvokeVoid("blazorCulture.set", value.Name);
+                NavManager.NavigateTo(NavManager.Uri, forceLoad: true);
             }
         }
     }
