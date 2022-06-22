@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoardGameTitle" xml:space="preserve">
-    <value>Jeux de société</value>
+  <data name="DefaultBoardGameTitle" xml:space="preserve">
+    <value>Bientôt disponible</value>
+  </data>
+  <data name="DefaultCreator" xml:space="preserve">
+    <value>Créateur</value>
+  </data>
+  <data name="DefaultInformation" xml:space="preserve">
+    <value>Informations</value>
   </data>
   <data name="HomePageInformation" xml:space="preserve">
     <value>Nous sommes une équipe de développeurs créant une application sur des jeux de société.</value>
@@ -128,6 +134,9 @@
   </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Accueil</value>
+  </data>
+  <data name="MageKnightInformation" xml:space="preserve">
+    <value>Mage Knight est un jeu d'exploration et de conquête qui mêle développement du personnage et l'intrigue pour créer une expérience de jeu vraiment unique</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Bienvenue sur Board Game Library</value>

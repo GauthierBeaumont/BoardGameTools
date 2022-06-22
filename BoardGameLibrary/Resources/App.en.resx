@@ -117,8 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoardGameTitle" xml:space="preserve">
-    <value>Board Game</value>
+  <data name="DefaultBoardGameTitle" xml:space="preserve">
+    <value>Coming soon</value>
+  </data>
+  <data name="DefaultCreator" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="DefaultInformation" xml:space="preserve">
+    <value>Informations</value>
   </data>
   <data name="HomePageInformation" xml:space="preserve">
     <value>We are a team of developers creating an app about board games.</value>
@@ -128,6 +134,9 @@
   </data>
   <data name="HomeTitle" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="MageKnightInformation" xml:space="preserve">
+    <value>The Mage Knight board game puts you in control of one of four powerful Mage Knights as you explore and conquer a corner of the universe under the control of the Atlantean Empire</value>
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome to Board Game Library</value>

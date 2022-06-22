@@ -1,0 +1,34 @@
+﻿@inherits BoardGameCardBase
+
+@if(_boardGameInformations.Count < 3)
+{
+    <MudItem md=@_mdMudItem></MudItem>
+}
+
+@foreach(var boardGame in _boardGameInformations)
+{
+    <MudItem xs="12" sm="6" md="4">
+        <MudCard Elevation="25" Class="rounded-lg pb-4">
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h5" Align="Align.Center">@boardGame.Title</MudText>
+                    <MudText Align="Align.Center" Typo="Typo.subtitle1" Style="font-style:italic;">@boardGame.Creator</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText Align="Align.Center" Typo="Typo.body1" Style="padding-bottom:15px;">@boardGame.Description</MudText>
+                <MudText Class="d-flex justify-center">
+                    <MudImage Src=@("Images/" + boardGame.ImageTitle) Alt="Mage Knight" Class="rounded-lg" ></MudImage>
+                </MudText>
+            </MudCardContent>
+            <MudCardActions Class="d-flex justify-center">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" disabled=@boardGame.DisabledButton>Go</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+}
+
+@if(_boardGameInformations.Count < 3)
+{
+    <MudItem md=@_mdMudItem></MudItem>
+}
