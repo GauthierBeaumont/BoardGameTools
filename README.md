@@ -1,5 +1,10 @@
 # GameBoardLibrary
-Cette application offre des outils pour les utilisateurs les aidant lors de leurs parties de jeux de société.
+Ajoute tes jeux de société dans ta liste, mais également ceux que tu aimerais acheter.
 
-Elle permettra également aux utilisateurs de créer une liste contenant leurs propres jeux ou les jeux qu'il souhaite acheter.
-Ils pourront partager cette liste avec leurs amis ou en public, s'abonner à leur style de jeux préférés.
+Partage ta liste avec tes amis en public ou garde la privé.
+
+Abonne-toi à ton style de jeux préférés ou à certains jeux pour recevoir des notifications.
+
+Partage tes vidéos tuto.
+
+Retrouve des outils qui te faciliteront tes parties.
