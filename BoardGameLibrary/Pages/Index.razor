@@ -2,11 +2,13 @@
 @inject IStringLocalizer<App> _l
 
 <PageTitle>@_l["HomeTitle"]</PageTitle>
-<div class="background-img">
-    <MudContainer Class="home-container">
-        <h2>@_l["Welcome"]</h2>
-        @_l["HomePageInformation"]
-        <MudSpacer />
-        @_l["HomePageInformation2"]
-    </MudContainer>
-</div>
+<MudContainer Class="mt-16">
+    <MudText Typo="Typo.h3" Align="Align.Center" GutterBottom="true">@_l["Welcome"]</MudText>
+    <MudText Align="Align.Center">@_l["HomePageInformation"] </MudText>
+    <MudText Align="Align.Center">@_l["HomePageInformation2"]</MudText>
+
+    <MudGrid Class="mt-8 pt-5">
+        <BoardGameCard></BoardGameCard>
+    </MudGrid>
+
+</MudContainer>
