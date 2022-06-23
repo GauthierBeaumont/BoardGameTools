@@ -1,0 +1,10 @@
+﻿@page "/BoardGame/{title}"
+
+<MudContainer Class="mt-16">
+    <h3>@Title</h3>
+</MudContainer>
+
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+}

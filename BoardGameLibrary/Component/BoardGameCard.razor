@@ -22,7 +22,7 @@
                 </MudText>
             </MudCardContent>
             <MudCardActions Class="d-flex justify-center">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" disabled=@boardGame.DisabledButton>Go</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" disabled=@boardGame.DisabledButton OnClick="(() => OpenTools(boardGame.Title))">Go</MudButton>
             </MudCardActions>
         </MudCard>
     </MudItem>

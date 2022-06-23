@@ -7,6 +7,8 @@ namespace BoardGameLibrary.Component
     {
         [Inject]
         private IStringLocalizer<App>? Localization { get; set; }
+        [Inject]
+        private NavigationManager NavigationManager { get; set; }
 
         protected List<BoardGameInformationModel> _boardGameInformations = new();
         protected int _mdMudItem = 4;
@@ -28,6 +30,11 @@ namespace BoardGameLibrary.Component
                 2 => 2,
                 _ => 4
             };
+        }
+
+        protected void OpenTools(string title)
+        {
+            NavigationManager.NavigateTo("/BoardGame/" + title);
         }
     }
 }
