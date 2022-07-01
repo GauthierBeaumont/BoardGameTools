@@ -1,11 +1,38 @@
-﻿@page "/BoardGame/{title}"
+﻿@page "/BoardGame/{title}/{id:int}"
 @inherits BoardGameBase
+@using BoardGameLibrary.Component.MageKnight
 
 <MudContainer Class="mt-16">
-    <h3>@Title</h3>
-</MudContainer>
 
-@code {
-    [Parameter]
-    public string Title { get; set; } = string.Empty;
-}
+    @*@if (Result){
+
+        <MudAlert Severity="Severity.Info">Successfully</MudAlert>
+    }
+    else
+    {
+        <MudAlert Severity="Severity.Error">Your are too bad</MudAlert>
+    }*@
+
+    <MudTable Items="@Cards" Hover="true" MultiSelection="true" @bind-SelectedItems="selectedCards" Filter="new Func<Cards,bool>(FilterCards1)">
+        <ToolBarContent>
+            <MudText Typo="Typo.h6">@Title</MudText>
+            <MudSpacer />
+            <MudTextField @bind-Value="searchString" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        </ToolBarContent>
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Characteristic</MudTh>
+            <MudTh>Value</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.Name</MudTd>
+            <MudTd>@context.Characteristics.CharacteristicType</MudTd>
+            <MudTd>@context.Characteristics.Value</MudTd>
+        </RowTemplate>
+        <FooterContent>
+            <MudTd>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" OnClick="(() => StartingHand())">Go</MudButton>
+            </MudTd>
+        </FooterContent>
+    </MudTable>
+</MudContainer>

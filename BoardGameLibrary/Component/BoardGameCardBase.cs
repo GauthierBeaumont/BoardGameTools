@@ -20,7 +20,7 @@ namespace BoardGameLibrary.Component
 
             _boardGameInformations = new List<BoardGameInformationModel>
             {
-                BoardGameInformationModel.From("Mage Knight", "Vlaada Chvatil", Localization["MageKnightInformation"], "MageKnightCard.png", false),
+                BoardGameInformationModel.From(1, "Mage Knight", "Vlaada Chvatil", Localization["MageKnightInformation"], "MageKnightCard.png", false),
                 BoardGameInformationModel.ComingSoon(Localization)
             };
 
@@ -32,9 +32,9 @@ namespace BoardGameLibrary.Component
             };
         }
 
-        protected void OpenTools(string title)
+        protected void OpenTools(int id, string title)
         {
-            NavigationManager.NavigateTo("/BoardGame/" + title);
+            NavigationManager.NavigateTo("/BoardGame/" + title + "/" + id);
         }
     }
 }

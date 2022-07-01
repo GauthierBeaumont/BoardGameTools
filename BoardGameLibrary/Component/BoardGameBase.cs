@@ -1,74 +1,72 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BoardGameLibrary.Component.MageKnight;
+using Microsoft.AspNetCore.Components;
 
 namespace BoardGameLibrary.Component
 {
-    public enum CharacteristicType
-    {
-        Movement,
-        Attack,
-        Parade
-    }
-
-    public class Characteristic
-    {
-        public CharacteristicType CharacteristicType { get; }
-        public int Value { get; }
-
-        public Characteristic(CharacteristicType characteristicType, int value)
-        {
-            CharacteristicType = characteristicType;
-            Value = value;
-        }
-    }
-
-    public class Cards
-    {
-        public string Name { get; }
-        public Characteristic Characteristics { get; }
-        public bool Delete { get; set; }
-
-        public Cards(string name, Characteristic characteristics)
-        {
-            Name = name;
-            Characteristics = characteristics;
-        }
-    }
-
-    public class Monsters
-    {
-        public string Name { get; }
-        public int Attack { get; }
-        public int Armor { get; }
-
-        public Monsters(string name, int attack, int armor)
-        {
-            Name = name;
-            Attack = attack;
-            Armor = armor;
-        }
-    }
-
-    public class StartingHandModel
-    {
-        public List<Cards> Cards { get; }
-        public bool Result { get; }
-
-        public StartingHandModel(List<Cards> cards, bool result)
-        {
-            Cards = cards;
-            Result = result;
-        }
-    }
-
     public class BoardGameBase : ComponentBase
     {
-        public StartingHandModel StartingHand(List<Cards> cards, Monsters monster)
+        [Parameter]
+        public int Id { get; set; } = 0;
+        [Parameter]
+        public string Title { get; set; } = string.Empty;
+
+        protected string searchString = string.Empty;
+        protected HashSet<Cards> selectedCards = new();
+
+
+        protected List<Cards> Cards = new();
+        protected bool Result = false;
+
+        protected override void OnInitialized()
         {
-            bool result = false;
+            switch(Id)
+            {
+                case 1:
+                    Cards = new List<Cards>() {
+                        new("ENDURANCE", new(CharacteristicType.Movement, 2)),
+                        new("ENDURANCE", new(CharacteristicType.Movement, 2)),
+                        new("CELERITE", new(CharacteristicType.Movement, 2)),
+                        new("CELERITE", new(CharacteristicType.Movement, 2)),
+                        new("MARCHE", new(CharacteristicType.Movement, 2)),
+                        new("MARCHE", new(CharacteristicType.Movement, 2)),
+                        new("INSTINCT", new(CharacteristicType.Attack, 2)),
+                        new("ENDURANCE GIVREE", new(CharacteristicType.Attack, 2)),
+                        new("RAGE", new(CharacteristicType.Parade, 2)),
+                        new("RAGE", new(CharacteristicType.Parade, 2))
+                    };
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        protected bool FilterCards1(Cards card) => FilterCards(card, searchString);
+
+        protected bool FilterCards(Cards card, string searchString)
+        {
+            if (string.IsNullOrWhiteSpace(searchString))
+                return true;
+            if (card.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+                return true;
+            if ($"{card.Characteristics.CharacteristicType}".Contains(searchString))
+                return true;
+            if ($"{card.Characteristics.Value}".Contains(searchString))
+                return true;
+            return false;
+        }
+
+        public StartingHandModel StartingHand()
+        {
+            var cards = selectedCards.ToList();
+
+            if (cards.Count > 6)
+                throw new Exception();
+
+            var monster = new Monsters("Rodeurs", 4, 3);
 
             var attack = 0;
             var parade = 0;
-            foreach (var card in cards)
+            foreach (var card in selectedCards)
             {
                 if (card.Characteristics.CharacteristicType is CharacteristicType.Attack)
                 {
@@ -86,20 +84,20 @@ namespace BoardGameLibrary.Component
 
             if (monster.Attack > parade)
             {
-                result = CalculatedCharacValue(monster.Attack, parade);
-                if (result)
+                Result = CalculatedCharacValue(monster.Attack, parade);
+                if (Result)
                     DeleteCardUsing();
             }
             if (monster.Armor > attack)
             {
-                result = CalculatedCharacValue(monster.Armor, attack);
-                if(result)
+                Result = CalculatedCharacValue(monster.Armor, attack);
+                if(Result)
                     DeleteCardUsing();
             }
             else if (monster.Armor <= attack)
-                result = true;
+                Result = true;
 
-            return new StartingHandModel(cards, result);
+            return new StartingHandModel(cards, Result);
 
             bool CalculatedCharacValue(int caracValueMonster, int caracValue)
             {

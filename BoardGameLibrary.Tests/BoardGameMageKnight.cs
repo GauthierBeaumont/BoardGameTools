@@ -1,9 +1,10 @@
 using BoardGameLibrary.Component;
+using BoardGameLibrary.Component.MageKnight;
 using FluentAssertions;
 
 namespace BoardGameLibrary.Tests
 {
-    public class UnitTest1
+    public class BoardGameMageKnight
     {
         [Fact]
         public void StartingHand_AttackIsOk_CardsIsNotRandom()
@@ -21,7 +22,7 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand(cards, monster);
+            var result = board.StartingHand();
 
             result.Should().BeEquivalentTo(
                 new StartingHandModel(
@@ -48,7 +49,7 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand(cards, monster);
+            var result = board.StartingHand();
 
             result.Should().BeEquivalentTo(
                 new StartingHandModel(
@@ -75,7 +76,7 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand(cards, monster);
+            var result = board.StartingHand();
 
             result.Should().BeEquivalentTo(new StartingHandModel(new List<Cards>(), true));
         }
@@ -95,7 +96,7 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand(cards, monster);
+            var result = board.StartingHand();
 
             result.Should().BeEquivalentTo(new StartingHandModel(new List<Cards>(), true));
         }
