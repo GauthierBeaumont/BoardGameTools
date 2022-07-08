@@ -2,7 +2,7 @@
 using Microsoft.JSInterop;
 using System.Globalization;
 
-namespace BoardGameLibrary.Extensions
+namespace BoardGameTools.Extensions
 {
     public static class WebAssemblyHostExtension
     {

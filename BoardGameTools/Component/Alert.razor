@@ -1,0 +1,12 @@
+﻿<MudAlert Severity="@SeverityValue" Style="@("display:" + @VisibleValue + ";")">
+    @Text
+</MudAlert>
+
+@code{
+    [Parameter]
+    public Severity SeverityValue { get; set; }
+    [Parameter]
+    public string Text { get; set; } = string.Empty;
+    [Parameter]
+    public string VisibleValue { get; set; } = string.Empty;
+}

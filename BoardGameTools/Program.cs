@@ -1,8 +1,8 @@
-using BoardGameLibrary;
+using BoardGameTools;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
-using BoardGameLibrary.Extensions;
+using BoardGameTools.Extensions;
 using Microsoft.Extensions.Localization;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
