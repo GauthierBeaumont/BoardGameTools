@@ -1,10 +1,9 @@
 # BoardGameTools
-Ajoute tes jeux de société dans ta liste, mais également ceux que tu aimerais acheter.
 
-Partage ta liste avec tes amis en public ou garde la privé.
+BoardGameTools est une application proposant des outils pour aider les joueurs de jeu de société lors de leurs parties.
 
-Abonne-toi à ton style de jeux préférés ou à certains jeux pour recevoir des notifications.
+## Mage Knight
 
-Partage tes vidéos tuto.
+Un outil aidant les joueurs lors des combats sur mage knight sera bientôt disponible. 
 
-Retrouve des outils qui te faciliteront tes parties.
+Il permettra lors des combats, d'aider l'utilisateur en lui indiquant si oui ou non, il peut combattre un monstre avec les cartes qu'il a en main.
