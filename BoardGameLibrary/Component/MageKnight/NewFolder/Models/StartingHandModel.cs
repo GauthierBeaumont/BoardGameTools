@@ -1,11 +1,11 @@
-﻿namespace BoardGameLibrary.Component.MageKnight
+﻿namespace BoardGameLibrary.Component.MageKnight.NewFolder.Models
 {
-    public class StartingHandModel
+    public class AttackingModel
     {
         public List<Cards> Cards { get; }
         public bool Result { get; }
 
-        public StartingHandModel(List<Cards> cards, bool result)
+        public AttackingModel(List<Cards> cards, bool result)
         {
             Cards = cards;
             Result = result;

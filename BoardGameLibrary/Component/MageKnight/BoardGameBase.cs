@@ -1,8 +1,63 @@
-﻿using BoardGameLibrary.Component.MageKnight;
+﻿using BoardGameLibrary.Component.MageKnight.NewFolder.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace BoardGameLibrary.Component
+namespace BoardGameLibrary.Component.MageKnight
 {
+    public class RangedAttack
+    {
+        private readonly List<Cards> _cards = new();
+        private readonly int _armor;
+
+        private RangedAttack(List<Cards> cards, int armor)
+        {
+            _cards = cards;
+            _armor = armor;
+        }
+
+        public static RangedAttack With(List<Cards> cards, int armor) => new(cards, armor);
+
+        public bool Try()
+        {
+            var rangedAttackCards = _cards.FindAll(c => c.Characteristics.CharacteristicType == CharacteristicType.RangedAttack);
+            if (!rangedAttackCards.Any())
+                return false;
+
+            var rangedAttack = 0;
+
+            foreach(var card in rangedAttackCards)
+            {
+                if (_armor <= rangedAttack)
+                    return true;
+                rangedAttack += card.Characteristics.Value;
+                card.Delete = true;
+            }
+
+            return true;
+        }
+    }
+
+    public class MonsterAttack
+    {
+        // Pas de parade
+            // KO
+        //Sinon
+            // L'attaque est supérieur à la parade
+                // KO
+            //Sinon
+                // OK
+    }
+
+    public class MageKnightAttack
+    {
+        // Pas d'attaque
+            // KO
+        // Sinon
+            // L'attaque est inférieur à la défense du monstre
+                // KO
+            // Sinon
+                // OK
+    }
+
     public class BoardGameBase : ComponentBase
     {
         [Parameter]
@@ -16,10 +71,11 @@ namespace BoardGameLibrary.Component
 
         protected List<Cards> Cards = new();
         protected bool Result = false;
+        protected string Visible = "none";
 
         protected override void OnInitialized()
         {
-            switch(Id)
+            switch (Id)
             {
                 case 1:
                     Cards = new List<Cards>() {
@@ -55,7 +111,7 @@ namespace BoardGameLibrary.Component
             return false;
         }
 
-        public StartingHandModel StartingHand()
+        public AttackingModel Attacking()
         {
             var cards = selectedCards.ToList();
 
@@ -63,6 +119,15 @@ namespace BoardGameLibrary.Component
                 throw new Exception();
 
             var monster = new Monsters("Rodeurs", 4, 3);
+
+            var success = RangedAttack
+                .With(cards, monster.Armor)
+                .Try();
+
+            if (success)
+                return new AttackingModel(cards, success);
+
+
 
             var attack = 0;
             var parade = 0;
@@ -91,17 +156,19 @@ namespace BoardGameLibrary.Component
             if (monster.Armor > attack)
             {
                 Result = CalculatedCharacValue(monster.Armor, attack);
-                if(Result)
+                if (Result)
                     DeleteCardUsing();
             }
             else if (monster.Armor <= attack)
                 Result = true;
 
-            return new StartingHandModel(cards, Result);
+            Visible = "Block";
+
+            return new AttackingModel(cards, Result);
 
             bool CalculatedCharacValue(int caracValueMonster, int caracValue)
             {
-                foreach(var card in cards)
+                foreach (var card in cards)
                 {
                     if (caracValueMonster <= caracValue)
                         return true;

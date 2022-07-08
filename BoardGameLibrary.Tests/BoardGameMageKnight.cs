@@ -1,9 +1,11 @@
 using BoardGameLibrary.Component;
 using BoardGameLibrary.Component.MageKnight;
+using BoardGameLibrary.Component.MageKnight.NewFolder.Models;
 using FluentAssertions;
 
 namespace BoardGameLibrary.Tests
 {
+
     public class BoardGameMageKnight
     {
         [Fact]
@@ -22,10 +24,10 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand();
+            var result = board.Attacking();
 
             result.Should().BeEquivalentTo(
-                new StartingHandModel(
+                new AttackingModel(
                     new List<Cards>(){ 
                         new("ENDURANCE", new(CharacteristicType.Movement, 2)), 
                         new("ENDURANCE", new(CharacteristicType.Movement, 2)), 
@@ -49,10 +51,10 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand();
+            var result = board.Attacking();
 
             result.Should().BeEquivalentTo(
-                new StartingHandModel(
+                new AttackingModel(
                     new List<Cards>()
                     {
                         new("MARCHE", new(CharacteristicType.Movement, 2))
@@ -76,9 +78,9 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand();
+            var result = board.Attacking();
 
-            result.Should().BeEquivalentTo(new StartingHandModel(new List<Cards>(), true));
+            result.Should().BeEquivalentTo(new AttackingModel(new List<Cards>(), true));
         }
 
         [Fact]
@@ -96,9 +98,9 @@ namespace BoardGameLibrary.Tests
             var monster = new Monsters("Rodeurs", 4, 3);
 
             var board = new BoardGameBase();
-            var result = board.StartingHand();
+            var result = board.Attacking();
 
-            result.Should().BeEquivalentTo(new StartingHandModel(new List<Cards>(), true));
+            result.Should().BeEquivalentTo(new AttackingModel(new List<Cards>(), true));
         }
 
     }

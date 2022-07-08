@@ -1,17 +1,18 @@
 ﻿@page "/BoardGame/{title}/{id:int}"
 @inherits BoardGameBase
-@using BoardGameLibrary.Component.MageKnight
+@using BoardGameLibrary.Component.MageKnight;
+@using BoardGameLibrary.Component.MageKnight.NewFolder.Models
 
 <MudContainer Class="mt-16">
 
-    @*@if (Result){
-
-        <MudAlert Severity="Severity.Info">Successfully</MudAlert>
+    @if (Result)
+    {
+        <Alert SeverityValue="Severity.Info" Text="Successfully" VisibleValue="@Visible"></Alert> 
     }
     else
     {
-        <MudAlert Severity="Severity.Error">Your are too bad</MudAlert>
-    }*@
+        <Alert SeverityValue="Severity.Error" Text="Your are too bad" VisibleValue="@Visible"></Alert>
+    }
 
     <MudTable Items="@Cards" Hover="true" MultiSelection="true" @bind-SelectedItems="selectedCards" Filter="new Func<Cards,bool>(FilterCards1)">
         <ToolBarContent>
@@ -31,7 +32,7 @@
         </RowTemplate>
         <FooterContent>
             <MudTd>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" OnClick="(() => StartingHand())">Go</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" Size="Size.Large" Style="width:50%;" OnClick="(() => Attacking())">Go</MudButton>
             </MudTd>
         </FooterContent>
     </MudTable>
