@@ -1,4 +1,4 @@
-# GameBoardLibrary
+# BoardGameTools
 Ajoute tes jeux de société dans ta liste, mais également ceux que tu aimerais acheter.
 
 Partage ta liste avec tes amis en public ou garde la privé.
