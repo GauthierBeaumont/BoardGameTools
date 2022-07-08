@@ -1,0 +1,14 @@
+﻿@using BoardGameTools.Component.MageKnight.Models
+
+<MudContainer Class="mt-8 mb-8">
+    <MudText Typo="Typo.h5" GutterBottom="true">History of used cards</MudText>
+    @foreach(var usedCard in UsedCards)
+    {
+        <MudText>@usedCard.Name / @usedCard.Characteristics.CharacteristicType</MudText>
+    }
+</MudContainer>
+
+@code {
+    [Parameter]
+    public List<Cards> UsedCards { get; set; } = new();
+}

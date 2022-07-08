@@ -1,4 +1,4 @@
-﻿namespace BoardGameTools.Component.MageKnight.NewFolder.Models
+﻿namespace BoardGameTools.Component.MageKnight.Models
 {
     public class Characteristic
     {
