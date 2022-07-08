@@ -1,7 +1,7 @@
-﻿using BoardGameLibrary.Component.MageKnight.NewFolder.Models;
+﻿using BoardGameTools.Component.MageKnight.NewFolder.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace BoardGameLibrary.Component.MageKnight
+namespace BoardGameTools.Component.MageKnight
 {
     public class RangedAttack
     {

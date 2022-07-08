@@ -1,9 +1,9 @@
-using BoardGameLibrary.Component;
-using BoardGameLibrary.Component.MageKnight;
-using BoardGameLibrary.Component.MageKnight.NewFolder.Models;
+using BoardGameTools.Component;
+using BoardGameTools.Component.MageKnight;
+using BoardGameTools.Component.MageKnight.NewFolder.Models;
 using FluentAssertions;
 
-namespace BoardGameLibrary.Tests
+namespace BoardGameTools.Tests
 {
 
     public class BoardGameMageKnight

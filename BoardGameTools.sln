@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGameLibrary", "BoardGameLibrary\BoardGameLibrary.csproj", "{A7D9D363-F83B-4D1A-8C2A-5F8DE3504D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGameTools", "BoardGameTools\BoardGameTools.csproj", "{A7D9D363-F83B-4D1A-8C2A-5F8DE3504D85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGameLibrary.Tests", "BoardGameLibrary.Tests\BoardGameLibrary.Tests.csproj", "{61A268DE-D48A-4F72-97CD-34195F82BD2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGameTools.Tests", "BoardGameTools.Tests\BoardGameTools.Tests.csproj", "{61A268DE-D48A-4F72-97CD-34195F82BD2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

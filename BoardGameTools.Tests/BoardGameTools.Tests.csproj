@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BoardGameLibrary\BoardGameLibrary.csproj" />
+    <ProjectReference Include="..\BoardGameTools\BoardGameTools.csproj" />
   </ItemGroup>
 
 </Project>

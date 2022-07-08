@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 
-namespace BoardGameLibrary.Component
+namespace BoardGameTools.Component
 {
     public class BoardGameInformationModel
     {
