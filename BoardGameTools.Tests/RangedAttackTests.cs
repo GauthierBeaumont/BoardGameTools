@@ -4,6 +4,7 @@ using FluentAssertions;
 
 namespace BoardGameTools.Tests
 {
+
     public class RangedAttackTests
     {
         [Fact]
@@ -108,10 +109,25 @@ namespace BoardGameTools.Tests
 
             result.Should().BeEquivalentTo(new RangedAttackModel
             {
-                Cards = new List<Cards>
-                {
-                    new(1, "TEST", new Characteristic(CharacteristicType.RangedAttack, 2))
-                },
+                Success = false
+            });
+        }
+
+        [Fact]
+        public void Try_RangedAttackWithMultipleCardIsNotOk_ReturnFalse()
+        {
+            var cards = new List<Cards>
+            {
+                new(1, "TEST", new Characteristic(CharacteristicType.RangedAttack, 2)),
+                new(2, "TEST", new Characteristic(CharacteristicType.RangedAttack, 2))
+            };
+
+            var armor = 5;
+
+            var result = RangedAttack.Try(cards, armor);
+
+            result.Should().BeEquivalentTo(new RangedAttackModel
+            {
                 Success = false
             });
         }

@@ -9,7 +9,7 @@ namespace BoardGameTools.Component.MageKnight
         {
             var rangedAttackCards = cards.FindAll(c => c.Characteristics.CharacteristicType == CharacteristicType.RangedAttack);
             if (!rangedAttackCards.Any())
-                return new RangedAttackModel { Cards = cards };
+                return new RangedAttackModel();
 
             var deletedCards = new List<int>();
             var rangedAttack = 0;
@@ -35,7 +35,7 @@ namespace BoardGameTools.Component.MageKnight
                 return new RangedAttackModel { Cards = cards, Success = true };
             }
                 
-            return new RangedAttackModel { Cards = cards };
+            return new RangedAttackModel();
         }
     }
 }
